@@ -98,11 +98,12 @@ $tasks = [
                 </div>
 
                 <table class="tasks">
-                    <tr class="tasks__item task">
+                    <? foreach ($tasks as $task): ?>
+                    <tr class="tasks__item task <?if($task['Выполнен'] == 'Да'):?> task--completed<?php endif; ?>" >
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                                <span class="checkbox__text">Сделать главную страницу Дела в порядке</span>
+                                <span class="checkbox__text"><?=$task['Задача']; ?></span>
                             </label>
                         </td>
 
@@ -112,6 +113,7 @@ $tasks = [
 
                         <td class="task__date"></td>
                     </tr>
+                  <? endforeach; ?>
 
                     <?php if ($show_complete_tasks): ?>
                       <tr class="tasks__item task task--completed">
