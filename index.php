@@ -13,6 +13,16 @@ $tasks = [
   ['Задача' => 'Заказать пиццу',	'Дата выполнения' => 'Нет', 'Категория' => 'Домашние дела',	'Выполнен' => 'Нет' ],
 ];
 
+function task_count($tasks, $project){
+  $count=0;
+  foreach ($tasks as $task) {
+    if ($task['Категория'] == $project ){
+      $count++;
+    }
+  }
+  return $count;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -61,7 +71,7 @@ $tasks = [
                       <? foreach ($projects as $project): ?>
                         <li class="main-navigation__list-item">
                             <a class="main-navigation__list-item-link" href="#"><?=$project; ?></a>
-                            <span class="main-navigation__list-item-count">0</span>
+                            <span class="main-navigation__list-item-count"><?=task_count($tasks, $project); ?></span>
                         </li>
                       <? endforeach;?>
                     </ul>
