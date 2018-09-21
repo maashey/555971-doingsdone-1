@@ -44,7 +44,7 @@
                     <ul class="main-navigation__list">
                       <? foreach ($projects as $project): ?>
                         <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#"><?=$project; ?></a>
+                            <a class="main-navigation__list-item-link" href="#"><?=esc($project); ?></a>
                             <span class="main-navigation__list-item-count"><?=task_count($tasks, $project); ?></span>
                         </li>
                       <? endforeach;?>
@@ -56,7 +56,7 @@
             </section>
 
             <main class="content__main">
-              <?= $content; ?> 
+              <?= $content; ?>
             </main>
         </div>
     </div>

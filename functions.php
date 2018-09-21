@@ -31,3 +31,15 @@ function include_template($name, $data) {
 
     return $result;
 }
+
+
+/**
+ * Фильтрация данных для показа на странице
+ *
+ * @param string $str - строка для фильтрации
+ * @return string отфильтрованная строка
+ */
+function esc($str) {
+	$text = htmlspecialchars($str);
+	return $text;
+}
