@@ -26,11 +26,11 @@
 <table class="tasks">
   <? foreach ($tasks as $task): ?>
     <? if ($task['Выполнен'] == 'Нет' || ($task['Выполнен'] == 'Да' && $show_complete_tasks) ):?>
-      <tr class="tasks__item task <?if($task['Выполнен'] == 'Да'):?> task--completed<?php endif; ?>" >
+      <tr class="tasks__item task <?=($task['Выполнен'] == 'Да')?'task--completed':''?> <?=(time_is_over($task['Дата выполнения']) == true)?'task--important':''?> " >
           <td class="task__select">
               <label class="checkbox task__checkbox">
                   <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1">
-                  <span class="checkbox__text"><?=esc($task['Задача']); ?></span>
+                  <span class="checkbox__text"><?=htmlspecialchars($task['Задача']); ?></span>
               </label>
           </td>
 

@@ -34,12 +34,21 @@ function include_template($name, $data) {
 
 
 /**
- * Фильтрация данных для показа на странице
- *
- * @param string $str - строка для фильтрации
- * @return string отфильтрованная строка
+ * Расчёт оставшегося времени для задачи
  */
-function esc($str) {
-	$text = htmlspecialchars($str);
-	return $text;
+function time_is_over($date_exp) {
+    if ($date_exp == 'Нет') {
+      $res = false;
+    }
+    else{
+      $diff = strtotime($date_exp) - time();
+      if ($diff<=86400){
+          $res = true;
+      }
+      else {
+          $res = false;
+      }
+    }
+
+    return $res;
 }
