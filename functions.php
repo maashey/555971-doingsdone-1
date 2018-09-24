@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 //функция подсчёта кол-ва задач в проекте
 function task_count($tasks, $project){
@@ -28,10 +26,8 @@ function include_template($name, $data) {
     require($name); //переменные из extract будут видны внутри подключаемого файла
 
     $result = ob_get_clean();  //возвращаем буфер и очищаем
-
     return $result;
 }
-
 
 /**
  * Расчёт оставшегося времени для задачи
@@ -49,6 +45,5 @@ function time_is_over($date_exp) {
           $res = false;
       }
     }
-
     return $res;
 }
